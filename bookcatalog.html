@@ -1,0 +1,48 @@
+<head>
+    <title></title>
+</head>
+
+<body>    
+    <h1>Library catalog:</h1>
+    <h1 id="books"></h1>
+    <script>
+        
+        var library = [
+            { author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true },
+            { author: 'Steve Jobs', title: 'Walter Isaacson', readingStatus: true },
+            { author: 'Suzanne Collins', title:  'Mockingjay: The Final Book of The Hunger Games', readingStatus: false }
+        ];
+        var books = document.getElementById("books");
+        
+        for (var count=0; count<library.length; count++)
+        {
+            if (library[count].readingStatus===true)
+            {
+                books.innerHTML+="Already read '" + library[count].title + "'" + " by " + library[count].author + "." + "</br>";
+            }
+            else
+            {
+                books.innerHTML+="You still need to read '" + library[count].title + "'" + " by " + library[count].author + "." + "</br>";
+            }
+        }
+    </script>
+
+</body>
+
+<!-- // /Consider the following array
+
+var library = [
+
+  { author: 'Bill Gates', title: 'The Road Ahead', readingStatus: true },
+
+  { author: 'Steve Jobs', title: 'Walter Isaacson', readingStatus: true },
+
+  { author: 'Suzanne Collins', title:  'Mockingjay: The Final Book of The Hunger Games', readingStatus: false }
+
+];
+
+If the reading status is true display “Already read '<insert title>' by <insert author>.”
+
+If the reading status is false display “You still need to read '<insert title>' by <insert author>.”
+
+Display results on webpage -->
