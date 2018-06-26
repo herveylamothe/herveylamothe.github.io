@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+	</head>
+	<body>
+		<input  id="StudentId" type="number" placeholder="Enter STUDENT ID">
+		<input id="Author" type="text" placeholder="Enter Author Name">
+		<input id="Title" type="text" placeholder="Enter Title Name">
+		<input onclick="saveData();displayCheckedOut();" type="button" value="Save to Library">
+		<input onclick="readOrNot()" type="button" value="Read status">
+		<input onclick="SearchLibrary()" type="button" value="Search book">
+
+		<ol id="list"></ol>
+		<script>
+			var library = []
+
+
+			function catalog(){
+				return {
+
+
+				Title: document.getElementById('Title').value,
+				Author: document.getElementById('Author').value,
+				StudentId: document.getElementById('StudentId').value,
+				readOrNot: 'Unread'
+
+				};
+			}
+			function saveData(){
+				library.push( catalog() );
+				alert(library[library.length - 1].Title +" By "+ library[library.length - 1].Author +""+ library[library.length - 1].StudentId + " has been added to the library");
+
+			function readUnread(){
+				for (var i =0; i< library.length; i++){
+					if(library[i].StudentId == document.getElementById('StudentId').value && library[i].Author == document.getElementById('Author').value && library[i].Title == document.getElementById('Title').value && library[i].readOrNot == "Unread"){
+						library[i].readOrNot = 'read'
+					}
+				}
+			}	
+			
+			 }	
+
+			 function displaylibrary() {
+
+			 	for(var i=0; i<library.length; i++) {
+			 		document.getElementById('list').innerHTML += '<li>' + library[i].Title + ' By ' + library[i].Author + library[i].StudentId;
+			 	}
+			 }		
+
+			function displayCheckedOut() {
+				document.getElementById('list').innerHTML = '';				          
+				document.getElementById('list').innerHTML += '' + library.length;
+
+			}		
+
+			function SearchLibrary(){
+				
+				for(var i=0; i<library.length; i++) {
+					if(document.getElementById('Author').value==library[i].Author){
+					document.getElementById('list').innerHTML += '<li>' + library[i].Title + ' By ' + library[i].Author + library[i].StudentId;
+					}
+					
+				}				
+
+			}	
+
+
+			
+
+			displayCheckedOut();
+
+		</script>
+
+	</body>
+</html>

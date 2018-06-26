@@ -1,0 +1,35 @@
+<head>
+    <title></title>
+</head>
+
+<body>
+    <h1>Colors:</h1>
+    <h1 id="colors"></h1>
+
+    <script>
+        color = ["Blue ", "Green", "Red", "Orange", "Violet", "Indigo", "Yellow "];
+        o = ["th", "st", "nd", "rd"];
+        var colorList = document.getElementById("colors");
+        for (var i=0; i<color.length; i++)
+        {
+            var a = i+1;
+            var checkingNum = a%10;
+            if (a>10 && a<20)
+            {
+                colors.innerHTML += a + o[0] + " choice is " + color[i] + "</br>" + "</br>";
+            }
+            
+            else if (checkingNum>0 && checkingNum<4)
+            {
+                colors.innerHTML += a + o[checkingNum] + " choice is " + color[i] + "</br>" + "</br>";
+            }
+            
+            else
+            {
+                colors.innerHTML += a + o[0] + " choice is " + color[i] + "</br>" + "</br>";
+            }            
+        }
+        
+    </script>
+
+</body>
